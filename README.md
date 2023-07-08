@@ -1,17 +1,24 @@
 # This is a sample Springboot project for a products entity api server with oauth client credentials. 
 
+## Install packages
+Run command:
+```shell
+mvn clean install
+```
+
+## Run project
+```shell
+mvn spring-boot:run
+```
+
 ## Fetch Token
-
 Sample curl command:
-
 ```shell
 curl --location 'localhost:8080/oauth/token' \
 --header 'Authorization: Basic Y2xpZW50OnNlY3JldA==' \
 --form 'grant_type="client_credentials"'
 ```
-
 Sample response:
-
 ```json
 {
     "access_token": "2c579673-7743-4d5c-a6e2-0929d4594830",
@@ -22,20 +29,15 @@ Sample response:
 ```
 
 ## Product APIs
-
 #### Fill in {access_token} from the one retrieved above
 
 ### 1. Fetch page of products
-
 Sample curl command:
-
 ```shell
 curl --location 'http://localhost:8080/api/v1/products?page=0&size=10' \
 --header 'Authorization: Bearer {access_token}'
 ```
-
 Sample response:
-
 ```json
 {
     "content": [
@@ -93,16 +95,12 @@ Sample response:
 ```
 
 ### 2. Fetch specific product
-
 Sample curl command:
-
 ```shell
 curl --location 'http://localhost:8080/api/v1/products/1' \
 --header 'Authorization: Bearer {access_token}'
 ```
-
 Sample response:
-
 ```json
 {
     "id": 1,
@@ -115,9 +113,7 @@ Sample response:
 ```
 
 ### 3. Create product
-
 Sample curl command:
-
 ```shell
 curl --location 'http://localhost:8080/api/v1/products' \
 --header 'Content-Type: application/json' \
@@ -130,9 +126,7 @@ curl --location 'http://localhost:8080/api/v1/products' \
     "price": 4.4
 }'
 ```
-
 Sample response:
-
 ```json
 {
     "id": 4,
@@ -145,9 +139,7 @@ Sample response:
 ```
 
 ### 4. Update product
-
 Sample curl command:
-
 ```shell
 curl --location --request PUT 'http://localhost:8080/api/v1/products/4' \
 --header 'Content-Type: application/json' \
@@ -160,9 +152,7 @@ curl --location --request PUT 'http://localhost:8080/api/v1/products/4' \
     "price": 4.5
 }'
 ```
-
 Sample response:
-
 ```json
 {
     "id": 4,
@@ -175,12 +165,9 @@ Sample response:
 ```
 
 ### 5. Delete product
-
 Sample curl:
-
 ```shell
 curl --location --request DELETE 'http://localhost:8080/api/v1/products/4' \
 --header 'Authorization: Bearer {access_token}'
 ```
-
 Empty response
