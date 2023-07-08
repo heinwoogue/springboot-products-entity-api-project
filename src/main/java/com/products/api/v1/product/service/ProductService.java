@@ -4,8 +4,6 @@ import com.products.api.v1.product.entity.Product;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import java.util.UUID;
-
 public interface ProductService {
     Product create(Product product);
 
