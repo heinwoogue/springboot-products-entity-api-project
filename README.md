@@ -5,7 +5,7 @@
 Sample curl command:
 
 ```shell
-curl --location 'localhost:8080/oauth/token?grant_tyoe=client_credentials&client_id=client&client_secret=secret' \
+curl --location 'localhost:8080/oauth/token' \
 --header 'Authorization: Basic Y2xpZW50OnNlY3JldA==' \
 --form 'grant_type="client_credentials"'
 ```
